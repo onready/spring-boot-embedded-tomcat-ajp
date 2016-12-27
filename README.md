@@ -10,8 +10,7 @@ y por el lado de los servidores de aplicaciones Tomcat y Jetty.
 #### Por qué usarlo en lugar de HTTP ####
 
 La razón principal es la eficiencia en términos de performance, debido a que los paquetes enviados son enviados en formato binario 
-en lugar del texto plano usado por HTTP. Existen otras causas relevantes como la manera en que se manejan las conexiones TCP, intentando reutilizarlas 
-a través de los ciclos de requests/responses.
+en lugar del texto plano usado por HTTP. Existen otras causas relevantes como la manera en que se manejan las conexiones TCP, AJP intenta reutilizarlas a través de los ciclos de requests/responses.
 
 ### Configuración del proyecto MAVEN ###
 
