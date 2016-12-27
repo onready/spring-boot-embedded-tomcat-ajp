@@ -1,9 +1,9 @@
-# Cómo habilitar puerto para conectarse a través de AJP en un Tomcat embebido
+# Cómo habilitar un conector AJP en un Tomcat embebido
 Aplicación spring boot con Tomcat embebido que admite conexiones a través del protocolo AJP
 
 ### Qué es y para qué se usa AJP ###
 
-El protocolo AJP (Apache Jserv Protocol) es un protocolo binario diseñado para la comunicación entre un servidor web
+El protocolo AJP (Apache JServ Protocol) es un protocolo binario diseñado para la comunicación entre un servidor web
 y varios servidores de aplicaciones. Especificamente los servidores que soportan este protocolo son, por el lado de servidores web Apache 1.x y 2.2,
 y por el lado de los servidores de aplicaciones Tomcat y Jetty.
 
