@@ -1,4 +1,4 @@
-package com.onready;
+package com.onready.tomcatajp;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
