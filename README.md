@@ -1,4 +1,4 @@
-# Cómo habilitar un conector AJP en un Tomcat embebido
+# Cómo habilitar el conector AJP en un Tomcat embebido
 Aplicación spring boot con Tomcat embebido que admite conexiones a través del protocolo AJP
 
 ### Qué es y para qué se usa AJP ###
