@@ -54,7 +54,7 @@ public class TomcatConfig { //El nombre puede ser cualquiera, lo importante es e
     private static final String PROTOCOL = "AJP/1.3";
 
     @Value("${tomcat.ajp.port}") //Definido en el application.properties
-    int ajpPort;
+    private int ajpPort;
 
     @Bean
     public EmbeddedServletContainerFactory servletContainer() {
@@ -68,7 +68,7 @@ public class TomcatConfig { //El nombre puede ser cualquiera, lo importante es e
 }
 ```
 
-Si todo fue bien debemos ver en el log por consola las siguientes líneas:
+Si todo fue bien, al ejecutarlo debemos ver en el log por consola las siguientes líneas:
 ```
 org.apache.coyote.ajp.AjpNioProtocol     : Initializing ProtocolHandler ["ajp-nio-9090"]
 org.apache.coyote.ajp.AjpNioProtocol     : Starting ProtocolHandler [ajp-nio-9090]
