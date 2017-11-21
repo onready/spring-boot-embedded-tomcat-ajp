@@ -9,7 +9,7 @@
     <packaging>jar</packaging>
 
     <name>tomcat-ajp</name>
-    <description>Aplicación spring boot con tomcat embebido que admite conexiones a través del protocolo AJP</description>
+    <description>Spring boot application with embedded tomcat that allows connections through AJP protocol</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -28,12 +28,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
         </dependency>
     </dependencies>
 

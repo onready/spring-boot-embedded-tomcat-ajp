@@ -1,20 +1,22 @@
-# Cómo habilitar el conector AJP en un Tomcat embebido
+# How to enable AJP connector on an embedded Tomcat
 Aplicación spring boot con Tomcat embebido que admite conexiones a través del protocolo AJP
+Spring boot application with an embedded Tomcat that allows connections through AJP protocol
 
-### Qué es y para qué se usa AJP ###
+### What is AJP and for what is it used for? ###
 
-El protocolo AJP (Apache JServ Protocol) es un protocolo binario diseñado para la comunicación entre un servidor web
-y varios servidores de aplicaciones. Especificamente los servidores que soportan este protocolo son, por el lado de servidores web Apache 1.x y 2.2,
-y por el lado de los servidores de aplicaciones Tomcat y Jetty.
+The AJP protocol (Apache JServ Protocol) is a binary protocol designed for the communication between a web server and
+other application servers. The servers that specifically supports this protocol are, on the web server side, Apache 1.x
+and 2.2, and, on the application server side, Tomcat and Jetty.
 
-#### Por qué usarlo en lugar de HTTP ####
+#### Why to use it instead of HTTP ####
 
-La razón principal es la eficiencia en términos de performance, debido a que los paquetes enviados son enviados en formato binario 
-en lugar del texto plano usado por HTTP. Existen otras causas relevantes como la manera en que se manejan las conexiones TCP, AJP intenta reutilizarlas a través de los ciclos de requests/responses.
+The main reason is performance, because the sent packages are sent on binary format instead of plane text used by HTTP.
+There are more relevante causes such as the way that TCP handle connections, AJP try to reuse through request/responses 
+cycles.
 
-### Configuración del proyecto MAVEN ###
+### Maven project configuration ###
 
-#### Empaquetar como JAR ####
+#### Package as JAR ####
 
 ```xml
 <packaging>jar</packaging>
@@ -31,9 +33,9 @@ en lugar del texto plano usado por HTTP. Existen otras causas relevantes como la
 </parent>
 ```
 
-#### Dependencias ####
+#### Dependencies ####
 
-* Tomcat embebido
+* Embedded Tomcat
 
 ```xml
 <dependency>
@@ -42,18 +44,18 @@ en lugar del texto plano usado por HTTP. Existen otras causas relevantes como la
 </dependency>
 ```
 
-#### Clase de configuración ####
+#### Configuration class ####
 
-* Tenemos que sobre escribir el bean que se encarga de la creación del contenedor de aplicaciones embebido, para eso definimos la 
-clase TomcatConfig de la siguiente forma:
+* We have to define the bean that handle the embedded application container creation, we define this TomcatConfig class
+as follows to achieve that:
 
 ```java
 @Configuration
-public class TomcatConfig { //El nombre puede ser cualquiera, lo importante es el contenido
+public class TomcatConfig { //The class name can be anything
     
     private static final String PROTOCOL = "AJP/1.3";
 
-    @Value("${tomcat.ajp.port}") //Definido en el application.properties
+    @Value("${tomcat.ajp.port}") //Defined on application.properties
     private int ajpPort;
 
     @Bean
@@ -68,7 +70,7 @@ public class TomcatConfig { //El nombre puede ser cualquiera, lo importante es e
 }
 ```
 
-Si todo fue bien, al ejecutarlo debemos ver en el log por consola las siguientes líneas:
+If all went well, when we execute it, we should see on the logs the following lines:
 ```
 org.apache.coyote.ajp.AjpNioProtocol     : Initializing ProtocolHandler ["ajp-nio-9090"]
 org.apache.coyote.ajp.AjpNioProtocol     : Starting ProtocolHandler [ajp-nio-9090]
